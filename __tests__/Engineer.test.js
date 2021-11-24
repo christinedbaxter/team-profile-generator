@@ -22,5 +22,4 @@ describe("Engineer", () => {
             expect(e.getRole()).toBe(testValue);
         });
     });
-
-})
+});
