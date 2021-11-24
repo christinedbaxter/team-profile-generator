@@ -15,7 +15,7 @@ describe("Manager", () => {
         });
     });
 
-    describe("getOffice", () => {
+    describe("getOfficeNumber", () => {
         it("Can get office number via getOfficeNumber()", () => {
             const testValue = 100;
             const e = new Manager("Foo", 1, "test@test.com", testValue);
