@@ -67,12 +67,16 @@ Project folder structure:
 │ ├── Intern.test.js
 │ └── Manager.test.js
 ├── dist/      // rendered output (HTML) and CSS style sheet
+├── docs/      // documentation and sample file
 ├── lib/       // classes
 ├── src/       // template helper code
+├── utils/     // generate file code
 ├── .gitignore // indicates folders/files Git should ignore
 ├── index.js   // runs the application
 └── package.json
 ```
+
+The index.js file is the source code for this application. The dist/ folder includes the rendered index.html file and CSS stylesheet (if needed). The docs/ folder includes documentation and sample file. Beyond that, any other included file provides support for packages, license information, and development.
 
 [back to top](#table-of-contents)
 
