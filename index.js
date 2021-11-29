@@ -70,16 +70,13 @@ const collectInputs = async (employees = []) => {
         {
             type: "input",
             name: "roleInfoData",
-            message: `Enter team member's ${getRoleInfo(teamMemberRole)}`
+            message: (answers) => `Enter team member's ${getRoleInfo(answers.teamMemberRole)}`
         },
         {
-            type: "list",
+            type: "confirm",
             name: "moreMembers",
             message: "Would you like to add more team members?",
-            choices: [
-                "yes",
-                "no"
-            ]
+            default: true
         }
     ];
 
