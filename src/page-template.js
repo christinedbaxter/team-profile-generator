@@ -69,13 +69,6 @@ const generateTeam = team => {
 
     const html = [];
 
-    // const filterManagerResults = team.filter(employee => employee.teamMemberRole.includes("Manager"));
-    // console.log(filterManagerResults);
-    // const filterEngineerResults = team.filter(employee => employee.teamMemberRole.includes("Engineer"));
-    // console.log(filterEngineerResults);
-    // const filterInternResults = team.filter(employee => employee.teamMemberRole.includes("Intern"));
-    // console.log(filterInternResults);
-
     html.push(team
         .filter(employee => employee.role.includes("Manager"))
         .map(manager => generateManager(manager))
@@ -109,7 +102,12 @@ module.exports = team => {
         <title>My Team</title>
     </head>
     <body>
-        <div>${generateTeam(team)}</div>
+        <h1>My Team</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+            ${generateTeam(team)}
+            </div>
+        </div>
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
