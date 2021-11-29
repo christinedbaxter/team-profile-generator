@@ -1,13 +1,17 @@
 const inquirer = require("inquirer");
-const { writeToFile, copyFile } = require("./utils/generate-site.js");
+const { writeToFile, copyFile } = require("./utils/generate-file.js");
 const generatePage = require("./src/page-template.js");
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
 const collectInputs = async (employees = []) => {
 
     const prompts = [
         {
             type: "input",
-            name: "teamMemberName",
+            name: "name",
             message: "Enter team member's name:",
             validate: nameInput => {
                 if (nameInput) {
@@ -20,7 +24,7 @@ const collectInputs = async (employees = []) => {
         },
         {
             type: "list",
-            name: "teamMemberRole",
+            name: "role",
             message: "Select team member's role:",
             choices: [
                 "Engineer",
@@ -38,7 +42,7 @@ const collectInputs = async (employees = []) => {
         },
         {
             type: "input",
-            name: "teamMemberId",
+            name: "id",
             message: "Enter team member's id:",
             validate: nameInput => {
                 if (nameInput) {
@@ -51,7 +55,7 @@ const collectInputs = async (employees = []) => {
         },
         {
             type: "input",
-            name: "teamMemberEmail",
+            name: "email",
             message: "Enter team member's email address:",
             validate: nameInput => {
                 if (nameInput) {
@@ -64,8 +68,8 @@ const collectInputs = async (employees = []) => {
         },
         {
             type: "input",
-            name: "roleInfoData",
-            message: (answers) => `Enter team member's ${getRoleInfo(answers.teamMemberRole)}`
+            name: "roleInfo",
+            message: (answers) => `Enter team member's ${getRoleInfo(answers.role)}`
         },
         {
             type: "confirm",
@@ -75,8 +79,17 @@ const collectInputs = async (employees = []) => {
         }
     ];
 
+
     const { moreMembers, ...answers } = await inquirer.prompt(prompts);
-    const newEmployees = [...employees, answers];
+    if (answers.role === "Engineer") {
+        newMember = new Engineer(answers.name, answers.id, answers.email, answers.role, answers.roleInfo);
+    } else if (answers.role === "Intern") {
+        newMember = new Intern(answers.name, answers.id, answers.email, answers.role, answers.roleInfo);
+    } else {
+        newMember = new Manager(answers.name, answers.id, answers.email, answers.role, answers.roleInfo);
+    }
+
+    const newEmployees = [...employees, newMember];
     return moreMembers ? collectInputs(newEmployees) : newEmployees;
 };
 

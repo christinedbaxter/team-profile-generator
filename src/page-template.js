@@ -1,4 +1,14 @@
+
+const emp = require("../lib/Employee");
+const eng = require("../lib/Engineer");
+const int = require("../lib/Intern");
+const Manager = require("../lib/Manager");
+const man = require("../lib/Manager");
+
+
 const generateTeam = team => {
+
+    console.log(team);
 
     // create the manager html
     const generateManager = manager => {
@@ -31,7 +41,7 @@ const generateTeam = team => {
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">GitHub: ${engineer.getOfficeNumber()}</li>
+                    <li class="list-group-item">GitHub: ${engineer.getGithub()}</li>
                 </ul>
             </div>
         </div>        
@@ -50,7 +60,7 @@ const generateTeam = team => {
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${intern.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                    <li class="list-group-item">GitHub: ${intern.getOfficeNumber()}</li>
+                    <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
         </div>        
@@ -59,17 +69,24 @@ const generateTeam = team => {
 
     const html = [];
 
+    // const filterManagerResults = team.filter(employee => employee.teamMemberRole.includes("Manager"));
+    // console.log(filterManagerResults);
+    // const filterEngineerResults = team.filter(employee => employee.teamMemberRole.includes("Engineer"));
+    // console.log(filterEngineerResults);
+    // const filterInternResults = team.filter(employee => employee.teamMemberRole.includes("Intern"));
+    // console.log(filterInternResults);
+
     html.push(team
-        .filter(employee => employee.getRole() === "Manager")
+        .filter(employee => employee.role.includes("Manager"))
         .map(manager => generateManager(manager))
     );
     html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
+        .filter(employee => employee.role.includes("Engineer"))
         .map(engineer => generateEngineer(engineer))
         .join("")
     );
     html.push(team
-        .filter(employee => employee.getRole() === "Intern")
+        .filter(employee => employee.role.includes("Intern"))
         .map(intern => generateIntern(intern))
         .join("")
     );
@@ -81,7 +98,7 @@ const generateTeam = team => {
 module.exports = team => {
     return `
 <!doctype html>
-<html lang="en">
+    <html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -89,15 +106,12 @@ module.exports = team => {
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
         <title>My Team</title>
     </head>
     <body>
-        ${generateTeam}
+        <div>${generateTeam(team)}</div>
         <!-- Bootstrap Bundle with Popper -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
     `;
