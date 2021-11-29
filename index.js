@@ -1,11 +1,6 @@
 const inquirer = require("inquirer");
-// const fs = require("fs");
-// const { writeFile, copyFile } = require("./utils/generate-site.js");
-// const generatePage = require("./src/page-template.js");
-// const Employee = require("./lib/Employee");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
-// const Manager = require("./lib/Manager");
+const { writeFile, copyFile } = require("./utils/generate-site.js");
+const generatePage = require("./src/page-template.js");
 
 const collectInputs = async (employees = []) => {
 
@@ -87,25 +82,23 @@ const collectInputs = async (employees = []) => {
 
 const main = async () => {
     const employees = await collectInputs()
-    console.log(employees);
-
-
-    // .then(employees => {
-    //     return generatePage(inputs);
-    // })
-    // .then(pageHTML => {
-    //     return fs.writeFile(pageHTML);
-    // })
-    // .then(writeFileResponse => {
-    //     console.log(writeFileResponse);
-    //     return copyFile();
-    // })
-    // .then(copyFileResponse => {
-    //     console.log(copyFileResponse);
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // });
+        // console.log(employees);
+        .then(employees => {
+            return generatePage(employees);
+        })
+        .then(pageHTML => {
+            return writeFile(pageHTML);
+        })
+        .then(writeFileResponse => {
+            console.log(writeFileResponse);
+            return copyFile();
+        })
+        .then(copyFileResponse => {
+            console.log(copyFileResponse);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 main();
@@ -113,13 +106,13 @@ main();
 function getRoleInfo(role) {
     let roleInfo = "";
     if (role === "Engineer") {
-        roleInfo = "GitHub username";
+        roleInfo = "GitHub username:";
         return roleInfo;
     } else if (role === "Intern") {
-        roleInfo = "school name";
+        roleInfo = "school name:";
         return roleInfo;
     } else {
-        roleInfo = "office phone number";
+        roleInfo = "office phone number:";
         return roleInfo;
     }
 };
