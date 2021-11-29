@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const { writeFile, copyFile } = require("./utils/generate-site.js");
+const { writeToFile, copyFile } = require("./utils/generate-site.js");
 const generatePage = require("./src/page-template.js");
 
 const collectInputs = async (employees = []) => {
@@ -87,7 +87,7 @@ const main = async () => {
             return generatePage(employees);
         })
         .then(pageHTML => {
-            return writeFile(pageHTML);
+            return writeToFile(pageHTML);
         })
         .then(writeFileResponse => {
             console.log(writeFileResponse);
