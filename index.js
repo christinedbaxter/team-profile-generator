@@ -88,25 +88,7 @@ const collectInputs = async (employees = []) => {
 const main = async () => {
     const employees = await collectInputs()
     console.log(employees);
-    // .then(function ({ teamMemberRole, moreMembers }) {
-    //     let newMember;
-    //     if (teamMemberRole === "Engineer") {
-    //         newMember = new Engineer(teamMemberName, teamMemberId, teamMemberEmail, roleInfoData);
-    //     } else if (teamMemberRole === "Intern") {
-    //         newMember = new Intern(teamMemberName, teamMemberId, teamMemberEmail, roleInfoData);
-    //     } else {
-    //         newMember = new Manager(teamMemberName, teamMemberId, teamMemberEmail, roleInfoData);
-    //     }
-    //     employees.push(newMember);
-    //     addHtml(newMember)
-    //         .then(function () {
-    //             if (moreMembers === "yes") {
-    //                 addMember();
-    //             } else {
-    //                 finishHtml();
-    //             }
-    //         });
-    // })
+
 
     // .then(employees => {
     //     return generatePage(inputs);
