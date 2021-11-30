@@ -13,6 +13,7 @@ const generateTeam = team => {
     // create the manager html
     const generateManager = manager => {
         return `
+    <div class="col">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${manager.getName()}</h2>
@@ -32,12 +33,14 @@ const generateTeam = team => {
                 </ul>
             </div>
         </div>
+    </div>
         `;
     };
 
     // create the html for engineers
     const generateEngineer = engineer => {
         return `
+    <div class="col">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${engineer.getName()}</h2>
@@ -56,13 +59,15 @@ const generateTeam = team => {
                     <li class="list-group-item"><i class="bi bi-github"></i> ${engineer.getGithub()}</li>
                 </ul>
             </div>
-        </div>        
+        </div>
+    </div>
         `;
     };
 
     // create the html for interns
     const generateIntern = intern => {
         return `
+    <div class="col">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${intern.getName()}</h2>
@@ -80,7 +85,8 @@ const generateTeam = team => {
                     <li class="list-group-item"><i class="bi bi-mortarboard"></i> ${intern.getSchool()}</li>
                 </ul>
             </div>
-        </div>        
+        </div>
+    </div>
         `;
     };
 
