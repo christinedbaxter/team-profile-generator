@@ -24,10 +24,18 @@ npm i
 
 ## Review
 
+_Acceptance Criteria/Pseudocode_
+
+- [User Story and Acceptance Criteria](docs/acceptance-criteria.md)
+- [Pseudocode](docs/pseudocode.md)
+
 _Walk-through Videos_
 
-- [Generate Team Profile](docs/teamProfleGen_demo.mp4)
-- [Run Unit Tests](docs/runUnitTests_demo.mpt)
+- [Generate Team Profile](docs/teamProfileGen_demo.gif)
+- [Run Unit Tests](docs/teamProfileGen_unitTests.gif)
+- [User Input Validation for Manager](docs/teamProfileGen_validation_Manager.gif)
+- [User Input Validation for Engineer](docs/teamProfileGen_validation_Engineer.gif)
+- [User Input Validation for Intern](docs/teamProfileGen_validation_Intern.gif)
 
 _File Generated Using this Application_
 
@@ -68,7 +76,7 @@ Project folder structure:
 └── package.json
 ```
 
-The index.js file is the source code for this application. The dist/ folder includes the rendered index.html file and CSS stylesheet (if needed). The docs/ folder includes documentation and sample file. Beyond that, any other included file provides support for packages, license information, and development.
+The index.js file is the source code for this application. The dist/ folder includes the rendered index.html file and CSS stylesheet. The docs/ folder includes documentation and sample file. Beyond that, any other included file provides support for packages, license information, and development.
 
 [back to top](#table-of-contents)
 
