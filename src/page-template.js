@@ -29,7 +29,7 @@ const generateTeam = team => {
                 <ul class="list-group">
                     <li class="list-group-item"><i class="bi bi-person-badge"></i> ${manager.getId()}</li>
                     <li class="list-group-item"><i class="bi bi-envelope"></i> <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                    <li class="list-group-item"><i class="bi bi-telephone"></i> ${manager.getOfficeNumber()}</li>
+                    <li class="list-group-item"><i class="bi bi-building"></i> ${manager.getOfficeNumber()}</li>
                 </ul>
             </div>
         </div>
@@ -56,7 +56,7 @@ const generateTeam = team => {
                 <ul class="list-group">
                     <li class="list-group-item"><i class="bi bi-person-badge"></i> ${engineer.getId()}</li>
                     <li class="list-group-item"><i class="bi bi-envelope"></i> <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item"><i class="bi bi-github"></i> ${engineer.getGithub()}</li>
+                    <li class="list-group-item"><i class="bi bi-github"></i> <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
                 </ul>
             </div>
         </div>
@@ -129,10 +129,8 @@ module.exports = team => {
     </head>
     <body>
         <h1>My Team</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-            ${generateTeam(team)}
-            </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">            
+            ${generateTeam(team)}            
         </div>
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
