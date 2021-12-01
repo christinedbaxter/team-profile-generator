@@ -13,7 +13,7 @@ Before proceeding ensure following information is available:
           Engineers (200-400)
           Interns (700-900)
     * Email address
-    * Office number for Manager
+    * Office location number for Manager
     * GitHub username for Engineer
     * School name for Intern
 ============================================================
