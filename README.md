@@ -26,24 +26,16 @@ npm i
 
 _Walk-through Videos_
 
-- [Generate README with License set to MIT](docs/README_License.gif)
-- [Generate README with License set to NONE](docs/README_NoLicense.gif)
+- [Generate Team Profile](docs/teamProfleGen_demo.mp4)
+- [Run Unit Tests](docs/runUnitTests_demo.mpt)
 
 _File Generated Using this Application_
 
-- [Sample README.md](docs/Sample-README.md)
+- [Sample index.html](docs/sample.html)
 
 _GitHub Repository_
 
-- [GitHub Repository URL](https://github.com/baxters4karma/c9-readme-generator)
-
-_GitHub Project_
-
-- [Link to project](https://github.com/baxters4karma/readme-generator/projects)
-
-_GitHub Issues_
-
-- [Link to issues](https://github.com/baxters4karma/readme-generator/issues)
+- [GitHub Repository URL](https://github.com/baxters4karma/c10-team-profile-generator)
 
 [back to top](#table-of-contents)
 
