@@ -31,19 +31,19 @@ _Acceptance Criteria/Pseudocode_
 
 _Walk-through Videos_
 
-- [Generate Team Profile](docs/teamProfileGen_demo.gif)
-- [Run Unit Tests](docs/teamProfileGen_unitTests.gif)
-- [User Input Validation for Manager](docs/teamProfileGen_validation_Manager.gif)
-- [User Input Validation for Engineer](docs/teamProfileGen_validation_Engineer.gif)
-- [User Input Validation for Intern](docs/teamProfileGen_validation_Intern.gif)
+- [Generate Team Profile](docs/demo.gif)
+- [Run Unit Tests](docs/unitTests.gif)
+- [User Input Validation for Manager](docs/validation_Manager.gif)
+- [User Input Validation for Engineer](docs/validation_Engineer.gif)
+- [User Input Validation for Intern](docs/validation_Intern.gif)
 
 _File Generated Using this Application_
 
-- [Sample index.html](docs/sample.html)
+- [Sample index.html](docs/sampleHTML.gif)
 
 _GitHub Repository_
 
-- [GitHub Repository URL](https://github.com/baxters4karma/c10-team-profile-generator)
+- [GitHub Repository URL](https://github.com/baxters4karma/team-profile-generator)
 
 [back to top](#table-of-contents)
 
