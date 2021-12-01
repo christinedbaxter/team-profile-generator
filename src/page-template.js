@@ -1,8 +1,6 @@
 // Create the team
 const generateTeam = team => {
 
-    console.log(team);
-
     // create the manager html
     const generateManager = manager => {
         return `
@@ -133,7 +131,7 @@ module.exports = team => {
             </div>
         </div>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row">
                 <div class="team-area col-12 d-flex justify-content-center">
                     ${generateTeam(team)}
                 </div>         

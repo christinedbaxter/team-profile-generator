@@ -1,11 +1,11 @@
-//Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require("inquirer");
 
-//Include exports needed for this application
+// Include exports needed for this application
 const { writeToFile, copyFile } = require("./utils/generate-file.js");
 const generatePage = require("./src/page-template.js");
-const { consoleAppStart, consoleIntroText,
-    consoleAddTeamMemberText, consoleAddAnotherTeamMemberText } =
+const { consoleIntroText, consoleAddTeamMemberText,
+    consoleAddAnotherTeamMemberText } =
     require("./src/consoleLogText");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -15,7 +15,7 @@ const Manager = require("./lib/Manager");
 // Accept a default parameter employees and set it to empty array
 const collectInputs = async (employees = []) => {
 
-    // create array of prompt objects
+    // Create array of prompt objects
     const prompts = [
         {
             type: "input",
@@ -25,7 +25,7 @@ const collectInputs = async (employees = []) => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter team member's name!");
+                    console.log("\nPlease enter team member's name!\n");
                     return false;
                 }
             }
@@ -43,7 +43,7 @@ const collectInputs = async (employees = []) => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please select role!");
+                    console.log("\nPlease select role!\n");
                     return false;
                 }
             }
@@ -51,12 +51,12 @@ const collectInputs = async (employees = []) => {
         {
             type: "input",
             name: "id",
-            message: "Enter team member's id:",
+            message: "Enter team member's id (Mgr=100-300, Eng=400-600, Int=700-900):",
             validate: (nameInput, answers) => {
                 if (checkId(nameInput, answers.role)) {
                     return true;
                 } else {
-                    console.log("\nInvalid number, choose an id within valid range for role!")
+                    console.log("\nInvalid number, choose an id within valid range for role!\n")
                 }
             }
         },
@@ -68,7 +68,7 @@ const collectInputs = async (employees = []) => {
                 if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(nameInput))) {
                     return true;
                 } else {
-                    console.log("\nPlease enter a valid email address!");
+                    console.log("\nPlease enter a valid email address!\n");
                     return false;
                 }
             }
@@ -81,7 +81,7 @@ const collectInputs = async (employees = []) => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log(`\nPlease enter your ${getRoleInfo(answers.role)}!`);
+                    console.log(`\nPlease enter your ${getRoleInfo(answers.role)}!\n`);
                     return false;
                 }
             }
@@ -117,35 +117,45 @@ const collectInputs = async (employees = []) => {
 };
 
 const main = async () => {
-    // print user helper instructions
-    console.log(`${consoleAppStart}`);
+    // Print user helper instructions    
     console.log(`${consoleIntroText}`);
     console.log(`${consoleAddTeamMemberText}`);
 
-    // call collectInputs function, assigning output to employees array
+    // Call collectInputs function, assigning output to employees array
     employees = await collectInputs()
+
+        // Pass employee array to page-template file, returning HTML
         .then(employees => {
-            return generatePage(employees);  //pass employee array to page-template file, returning HTML
+            return generatePage(employees);
         })
+
+        // Use HTML and create index.html file
         .then(pageHTML => {
-            return writeToFile(pageHTML);  //use HTML and create index.html file
+            return writeToFile(pageHTML);
         })
+
+        // Let user know file was created successfully
+        // Copy file once writing file was a success
         .then(writeFileResponse => {
-            console.log(writeFileResponse);  //let user know file was created successfully
-            return copyFile();  //copy file once writing file was a success
+            console.log(writeFileResponse);
+            return copyFile();
         })
+
+        // Let user know stylesheet was created
         .then(copyFileResponse => {
-            console.log(copyFileResponse);  //let user know stylesheet was created
+            console.log(copyFileResponse);
         })
+
+        // Catch and log any errors in above process
         .catch(err => {
-            console.log(err);  //catch and log any errors in above process
+            console.log(err);
         });
 };
 
-// run/initialize app
+// Run/initialize app
 main();
 
-// using user-selected role, get and return role-specific information
+// Using user-selected role, get and return role-specific information
 function getRoleInfo(role) {
     let roleInfo = "";
     if (role === "Engineer") {
@@ -160,17 +170,17 @@ function getRoleInfo(role) {
     }
 };
 
-// return true if team member id is in range, otherwise false
+// Return true if team member id is in range, otherwise false
 function inRange(x, min, max) {
     return ((x - min) * (x - max) <= 0);
 };
 
-// check ID entered by user and confirm it falls in valid range
+// Check ID entered by user and confirm it falls in valid range
 function checkId(nameInput, role) {
     if (role === "Manager") {
         return inRange(nameInput, 100, 300);
     } else if (role === "Engineer") {
-        return inRange(nameInput, 200, 400);
+        return inRange(nameInput, 400, 600);
     } else if (role === "Intern") {
         return inRange(nameInput, 700, 900);
     } else {

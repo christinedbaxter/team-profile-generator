@@ -10,6 +10,10 @@ h1 {
 	padding: 0.5em;
 }
 
+.team-area {
+	flex-wrap: wrap;
+}
+
 .employee-card {
 	height: 100%;
 }
