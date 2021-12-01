@@ -47,7 +47,7 @@ const generateTeam = team => {
                 <ul class="list-group">
                     <li class="list-group-item"><i class="bi bi-person-badge"></i> ${engineer.getId()}</li>
                     <li class="list-group-item"><i class="bi bi-envelope"></i> <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item"><i class="bi bi-github"></i> <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+                    <li class="list-group-item"><i class="bi bi-github"></i> <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
                 </ul>
             </div>
         </div>
