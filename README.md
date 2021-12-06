@@ -31,15 +31,21 @@ _Acceptance Criteria/Pseudocode_
 
 _Walk-through Videos_
 
-- [Generate Team Profile](docs/demo.gif)
-- [Run Unit Tests](docs/unitTests.gif)
-- [User Input Validation for Manager](docs/validation_Manager.gif)
-- [User Input Validation for Engineer](docs/validation_Engineer.gif)
-- [User Input Validation for Intern](docs/validation_Intern.gif)
+- Generate Team Profile
+  ![](docs/demo.gif)
+- Run Unit Tests
+  ![](docs/unitTests.gif)
+- User Input Validation for Manager
+  ![](docs/validation_Manager.gif)
+- User Input Validation for Engineer
+  ![](docs/validation_Engineer.gif)
+- User Input Validation for Intern
+  ![](docs/validation_Intern.gif)
 
 _File Generated Using this Application_
 
-- [Sample index.html](docs/sampleHTML.gif)
+- Sample index.html
+  ![](docs/sampleHTML.gif)
 
 _GitHub Repository_
 
