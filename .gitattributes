@@ -1,2 +1,2 @@
 *.gif filter=lfs diff=lfs merge=lfs -text
-docs/walkThrough.gif filter=lfs diff=lfs merge=lfs -text
+
